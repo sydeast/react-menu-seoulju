@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import App from '../App';
 import fetchMenu from '../actions/fetchMenu';
+import App from '../App';
 
 class FoodList extends React.Component {
   componentDidMount() {

@@ -1,9 +1,9 @@
 import React from 'react';
 
-// class Dish extends React.Component {
-//   render() {
-    // const { name, price, desc, status } = this.props.item;
-    const Dish = ({ name, price, desc, status }) => {
+class Dish extends React.Component {
+  render() {
+    const { name, price, desc, status } = this.props.item;
+    // const Dish = ({ name, price, desc, status }) => {
     const isAvailable = status === 'available';
     return (
       <li className='food-item'>
@@ -17,7 +17,7 @@ import React from 'react';
         </button>
       </li>
     );
-//   }
+  }
 }
 
 export default Dish;
