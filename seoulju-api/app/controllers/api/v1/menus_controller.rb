@@ -16,12 +16,12 @@ class MenusController < ApplicationController
 
   # POST /menus
   def create
-    @menu = Menu.new(menu_params)
+    menu = Menu.new(menu_params)
 
-    if @menu.save
-      render json: @menu, status: :created
+    if menu.save
+      render json: menu, status: :created
     else
-      render json: @menu.errors, status: :unprocessable_entity
+      render json: {errors: menu.errors}, status: :unprocessable_entity
     end
   end
 

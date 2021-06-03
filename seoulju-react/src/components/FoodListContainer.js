@@ -12,7 +12,7 @@ class FoodList extends React.Component {
 
     return (
       <div className='app'>
-        <App menu={menuItems} addMenuItem={this.addMenuItem} />
+        <App menu={menuItems} />
       </div>
     );
   }

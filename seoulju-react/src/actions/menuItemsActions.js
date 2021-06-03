@@ -1,27 +1,15 @@
-export const FETCH_MENUITEMS_BEGIN = 'FETCH_MENUITEMS_BEGIN';
-export const FETCH_MENUITEMS_SUCCESS = 'FETCH_MENUITEMS_SUCCESS';
-export const FETCH_MENUITEMS_FAILURE = 'FETCH_MENUITEMS_FAILURE';
+export const FETCH_MENUITEMS = 'FETCH_MENUITEMS';
 
-export function fetchMenuItemsBegin(){
-  return {
-    type: FETCH_MENUITEMS_BEGIN,
-  }
-};
 
-export function fetchMenuItemsSuccess( menuItems ){
+
+export function fetchMenuItems( menuItems ){
   return {
 
-    type: FETCH_MENUITEMS_SUCCESS,
+    type: FETCH_MENUITEMS,
     menuItems:  menuItems
   }
 };
 
-export function fetchMenuItemsFailure(error){
-  return {
-    type: FETCH_MENUITEMS_FAILURE,
-    error: error,
-  };
-};
 
 // export function addNewDish(newFoodItem) {
 //   return {

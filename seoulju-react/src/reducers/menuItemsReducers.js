@@ -1,8 +1,7 @@
 import {
-  FETCH_MENUITEMS_BEGIN,
-  FETCH_MENUITEMS_SUCCESS,
-  FETCH_MENUITEMS_FAILURE,
+  FETCH_MENUITEMS
 } from '../actions/menuItemsActions';
+import {ADD_DISH, UPDATE_DISH} from '../actions/menuActions';
 
 const initialState = {
   menu: {},
@@ -12,31 +11,25 @@ const initialState = {
 
 export default function menuItemsReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_MENUITEMS_BEGIN:
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-    case FETCH_MENUITEMS_SUCCESS:
+    case FETCH_MENUITEMS:
       return {
         ...state,
         loading: false,
         menu: action.menuItems,
       };
 
-    case FETCH_MENUITEMS_FAILURE:
+    case ADD_DISH:
       return {
         ...state,
-        loading: false,
-        error: action.error
-        // menu: [],
+        menu: [...state.menu, action.newMenuItem],
       };
-
+    case UPDATE_DISH:
+      return {
+        ...state,
+        [action.menu.id]: action.menu.dishProps
+      };
     default:
       return state;
   }
 }
  export const getMenuItems = (state) => state.menu;
- export const getMenuItemsPending = (state) => state.pending;
- export const getMenuItemsError = (state) => state.error;

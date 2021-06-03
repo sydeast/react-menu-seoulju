@@ -4,6 +4,7 @@ import Header from './components/Header';
 import DishItem from './components/DishItem';
 import AlterMenu from './components/AlterMenu';
 
+
 class App extends React.Component {
  render() {
 
@@ -17,7 +18,6 @@ class App extends React.Component {
                key={key}
                index={key}
                item={this.props.menu[key]}
-               addMenuItem={this.props.addMenuItem}
              />
            ))}
          </ul>

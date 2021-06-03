@@ -1,3 +1,5 @@
+//Component to display individual dish items details.
+
 import React from 'react';
 
 class Dish extends React.Component {

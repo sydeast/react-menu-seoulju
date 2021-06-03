@@ -1,5 +1,7 @@
+//Also known as menu planning or inventory, this file is to alter the menu for the restaurant
+
 import React from 'react';
-// import AddFoodItem from './AddFoodItem';
+import AddFoodItem from './AddNewMenuItem';
 import EditDish from './EditDish';
 
 class Menu extends React.Component {
@@ -7,7 +9,7 @@ class Menu extends React.Component {
     return (
       <div className='foods-inventory'>
         <h2>Menu Planning</h2>
-        {/* <AddFoodItem addMenuItem={this.props.addMenuItem} /> */}
+        <AddFoodItem />
         {Object.keys(this.props.menu).map((key) => (
           <EditDish
             key={key}
