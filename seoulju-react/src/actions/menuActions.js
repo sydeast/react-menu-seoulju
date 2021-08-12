@@ -8,12 +8,12 @@ const addDish = newDish => {
   }
 };
 
-const editDish = updatedDish => {
-  return {
-    type: 'UPDATE_DISH',
-    updatedDish
-  }
-};
+// const editDish = (dishProps) => {
+//   return {
+//     type: 'UPDATE_DISH',
+//     dishProps,
+//   };
+// };
 
 export const createNewDish = newDish => dispatch => {
     fetch(`http://localhost:3001/api/v1/menus`, {
@@ -40,11 +40,30 @@ export const createNewDish = newDish => dispatch => {
       body: JSON.stringify(dishProps),
     })
       .then((resp) => resp.json())
-      .then(() => {
-        dispatch(editDish());
+      .then((dishProps) => {
+        debugger
       })
+      // .then()
       .catch((error) => console.log(error));
   };
+
+  // export const deleteDish = (id, dishProps) => (dispatch) => {
+  //   fetch(`http://localhost:3001/api/v1/menus`, {
+  //     method: 'DESTROY',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(dishProps),
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((dishProps) => {
+  //       debugger
+  //     })
+  //     // .then((dish) => {
+  //     //   dispatch(deleteDish(dish));
+  //     // })
+  //     .catch((error) => console.log(error));
+  // };
 
 // Handle HTTP errors since fetch won't.
 export function handleErrors(response) {

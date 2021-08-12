@@ -1,6 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateDish } from '../actions/menuActions';
 
 class EditDish extends React.Component {
+
+  handleChange = (event) => {
+    event.preventDefault()
+    const foodId = this.props.item.id;
+    const updateMenuItem = {
+         [event.currentTarget.name]:
+        event.currentTarget.name === 'price'
+          ? parseFloat(event.currentTarget.value)
+          : event.currentTarget.value,
+    };
+
+    this.props.updateDish(foodId, updateMenuItem);
+    window.location.reload(false);
+  }
+
   render() {
     const itemId = this.props.item.id;
     return (
@@ -45,5 +62,16 @@ class EditDish extends React.Component {
     );
   }
 }
-
-export default EditDish
+const mapStateToProps = (state) => {
+  return {
+    menu: state.updateMenuItem,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateDish: (id, dishProps) => {
+      dispatch(updateDish(id, dishProps));
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(EditDish);

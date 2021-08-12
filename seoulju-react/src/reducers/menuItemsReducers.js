@@ -1,6 +1,5 @@
-import {
-  FETCH_MENUITEMS
-} from '../actions/menuItemsActions';
+// import {  FETCH_MENUITEMS} from '../actions/menuItemsActions';
+import fetchMenu from '../actions/fetchMenu';
 import {ADD_DISH, UPDATE_DISH} from '../actions/menuActions';
 
 const initialState = {
@@ -11,22 +10,20 @@ const initialState = {
 
 export default function menuItemsReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_MENUITEMS:
+    case 'FETCH_MENUITEMS':
       return {
-        ...state,
-        loading: false,
-        menu: action.menuItems,
+        menu: action.payload
       };
 
-    case ADD_DISH:
+    case 'ADD_DISH':
       return {
         ...state,
-        menu: [...state.menu, action.newMenuItem],
+        menu:  action.newMenuItem,
       };
     case UPDATE_DISH:
       return {
         ...state,
-        [action.menu.id]: action.menu.dishProps
+        menu: action.updateMenuItem,
       };
     default:
       return state;

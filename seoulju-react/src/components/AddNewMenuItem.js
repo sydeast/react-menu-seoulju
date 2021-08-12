@@ -33,7 +33,7 @@ class AddFoodItem extends React.Component {
 
     }
     this.props.createNewDish(newFoodItem);
-    
+    window.location.reload(false);
   }
 
    render() {
