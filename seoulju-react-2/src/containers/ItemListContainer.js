@@ -1,5 +1,6 @@
 import React from "react";
 import Header from '../components/Header';
+import Dish from "../components/DishItem";
 
 function ItemListContainer() {
     return (
@@ -8,6 +9,9 @@ function ItemListContainer() {
           <div className='menu-base'>
             <Header tagline='We’ll Soju a good time!' />
           </div>
+        </div>
+        < div className='dishes'>
+            <Dish/>
         </div>
       </div>
     );

@@ -6,7 +6,8 @@ import loggerMiddleware from './middleware/logger';
 
 
 
-import rootReducer from './reducers/rootReducer';
+// import rootReducer from './reducers/rootReducer';
+import menuItemsReducer from './reducers/menuReducers';
 
 export function configureStore(preloadedState) {
   const middlewares = [loggerMiddleware, thunkMiddleware]
@@ -15,7 +16,11 @@ export function configureStore(preloadedState) {
   const enhancers = [middlewareEnhancer, monitorReducersEnhancer]
   const composedEnhancers = compose(...enhancers)
 
-  const store = createStore(rootReducer, preloadedState, composedEnhancers)
+  const store = createStore(
+    menuItemsReducer,
+    preloadedState,
+    composedEnhancers
+  );
 
   return store
 };
