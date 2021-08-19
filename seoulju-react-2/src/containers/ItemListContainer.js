@@ -1,14 +1,13 @@
 import React from "react";
-import Header from '../components/Header';
+// import Header from '../components/Header';
 import Dish from "../components/DishItem";
+import Navigation from "../components/Navigation";
 
 function ItemListContainer() {
     return (
       <div className='app'>
         <div className='seoulju-korean-kitchen'>
-          <div className='menu-base'>
-            <Header tagline='We’ll Soju a good time!' />
-          </div>
+            <Navigation />
         </div>
         < div className='dishes'>
             <Dish/>
