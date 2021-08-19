@@ -38,7 +38,10 @@ function Dish() {
               <Card.Body>
                 <Card.Title className='dish-info'>{dish.name}</Card.Title>
                 <Card.Text>
-                  <h5 className='price'>Price: {dish.price}</h5>
+                  <span className='price'>
+                    Price: {dish.price}
+                  </span>
+                  <br/>
                   <span className='dish-text'>Description: {dish.desc}</span>
                 </Card.Text>
                 <Button onClick={() => dispatch(addToOrder(dish, dish.id))}>
