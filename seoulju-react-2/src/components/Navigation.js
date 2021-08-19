@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <Navbar bg='light' expand='lg' sticky='top'>
       <Container>
-        <Navbar.Brand href='home'>
+        <Navbar.Brand href='/'>
           <Header tagline="We'll Soju A Good Time!" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />

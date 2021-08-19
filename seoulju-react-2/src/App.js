@@ -1,11 +1,12 @@
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Header from './components/Header';
 import ItemListContainer from './containers/ItemListContainer';
 import { connect } from 'react-redux';
 import { fetchMenu } from './actions/menuActions';
+import Navigation from './components/Navigation';
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,9 +20,12 @@ class App extends React.Component {
      //      <Header tagline='We’ll Soju a good time!' />
      //    </div>
      //  </div>
-     <BrowserRouter>
+
+     <Router>
+       <Navigation />
+       <br/>
        <Route exact path='/' component={ItemListContainer} />
-     </BrowserRouter>
+     </Router>
    );
 }
 }
