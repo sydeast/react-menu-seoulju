@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Button } from 'react-bootstrap';
+import { addToOrder } from '../actions/menuActions';
 
 // class Dish extends React.Component {
 //   render() {
@@ -26,7 +27,7 @@ import { Card, Button } from 'react-bootstrap';
 
 function Dish() {
   const menu = useSelector((state) => state.menu);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <div className='menu-items section-center'>
       {menu.map((dish) => {
@@ -38,9 +39,11 @@ function Dish() {
                 <Card.Title className='dish-info'>{dish.name}</Card.Title>
                 <Card.Text>
                   <h5 className='price'>Price: {dish.price}</h5>
-                  <p className='dish-text'>Description: {dish.desc}</p>
+                  <span className='dish-text'>Description: {dish.desc}</span>
                 </Card.Text>
-                <Button>Add to Order</Button>
+                <Button onClick={() => dispatch(addToOrder(dish, dish.id))}>
+                  Add to Order
+                </Button>
               </Card.Body>
             </Card>
             <br />

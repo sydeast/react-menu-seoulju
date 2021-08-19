@@ -15,3 +15,10 @@ export const fetchMenu = () => {
 
   };
 }
+
+export const addToOrder = (dish, id) => {
+  return {
+    type: 'ORDER_DISH',
+    payload: { dish, id },
+  };
+};

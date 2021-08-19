@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // import Header from './components/Header';
 import ItemListContainer from './containers/ItemListContainer';
 import { connect } from 'react-redux';
-import { fetchMenu } from './actions/fetchMenu';
+import { fetchMenu } from './actions/menuActions';
 
 class App extends React.Component {
   componentDidMount() {
