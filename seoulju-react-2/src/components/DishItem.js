@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 // class Dish extends React.Component {
 //   render() {
@@ -28,32 +28,25 @@ function Dish() {
   const menu = useSelector((state) => state.menu);
   // const dispatch = useDispatch();
   return (
-    <div className='menu-items'>
-
-        {menu.map((dish, index) => {
-          return (
-            <Row>
-              <div key={index}>
-                <Col>
-                  <Card border='dark' style={{ width: '18rem' }}>
-                    <Card.Header as='h5'>{dish.category}</Card.Header>
-                    <Card.Body>
-                      <Card.Title>{dish.name}</Card.Title>
-                      <Card.Text>
-                        Price: {dish.price}
-                        <br />
-                        Description: {dish.desc}
-                      </Card.Text>
-                      <Button>Add to Order</Button>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <br />
-              </div>
-            </Row>
-          );
-        })}
-
+    <div className='menu-items section-center'>
+      {menu.map((dish) => {
+        return (
+          <div key={dish.id} className='menu-item'>
+            <Card border='dark' style={{ width: '18rem' }}>
+              <Card.Header as='h5'>{dish.category}</Card.Header>
+              <Card.Body>
+                <Card.Title className='dish-info'>{dish.name}</Card.Title>
+                <Card.Text>
+                  <h5 className='price'>Price: {dish.price}</h5>
+                  <p className='dish-text'>Description: {dish.desc}</p>
+                </Card.Text>
+                <Button>Add to Order</Button>
+              </Card.Body>
+            </Card>
+            <br />
+          </div>
+        );
+      })}
     </div>
   );
 }
