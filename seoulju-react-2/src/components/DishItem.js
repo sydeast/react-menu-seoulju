@@ -29,7 +29,7 @@ function Dish() {
   const menu = useSelector((state) => state.menu);
   const dispatch = useDispatch();
   return (
-    <div className='menu-items section-center'>
+    <div className='menu-items'>
       {menu.map((dish) => {
         return (
           <div key={dish.name} className='menu-item'>

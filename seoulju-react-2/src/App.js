@@ -24,9 +24,9 @@ class App extends React.Component {
      //  </div>
 
      <Router>
-       <StoreContainer />
+       {/* <StoreContainer /> */}
        <br />
-       <Route exact path='/' component={ItemListContainer} />
+       <Route exact path='/' component={StoreContainer} />
        <Route exact path='/checkout' component={OrderContainer} />
      </Router>
    );
