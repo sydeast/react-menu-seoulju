@@ -4,7 +4,8 @@ export const fetchMenu = () => {
       .then((res) => res.json())
       .then(data => {
         const menuItems = data.map((dish) => ({
-          ...dish
+          ...dish,
+          ordered: 0,
         }));
         dispatch({
           type: 'FETCH_MENUITEMS',
@@ -16,9 +17,9 @@ export const fetchMenu = () => {
   };
 }
 
-export const addToOrder = (dish, id) => {
+export const addToOrder = (dish) => {
   return {
     type: 'ORDER_DISH',
-    payload: { dish, id },
+    payload: {dish}
   };
 };

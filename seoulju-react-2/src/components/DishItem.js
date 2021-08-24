@@ -32,7 +32,7 @@ function Dish() {
     <div className='menu-items section-center'>
       {menu.map((dish) => {
         return (
-          <div key={dish.id} className='menu-item'>
+          <div key={dish.name} className='menu-item'>
             <Card border='dark' style={{ width: '18rem' }}>
               <Card.Header as='h5'>{dish.category}</Card.Header>
               <Card.Body>
@@ -44,7 +44,7 @@ function Dish() {
                   <br/>
                   <span className='dish-text'>Description: {dish.desc}</span>
                 </Card.Text>
-                <Button onClick={() => dispatch(addToOrder(dish, dish.id))}>
+                <Button onClick={() => dispatch(addToOrder(dish))}>
                   Add to Order
                 </Button>
               </Card.Body>
