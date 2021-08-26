@@ -1,28 +1,27 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-// import Header from '../components/Header';
-// import Navigation from "../components/Navigation";
-import Dish from "../components/DishItem";
-import Order from "../components/Order";
+import Dish from "../components/DishItem/DishItem";
+import {connect} from 'react-redux';
 
 
-function StoreContainer() {
+function StoreContainer({menu}) {
   return (
     <div className='seoulju-korean-kitchen'>
-        {/* <Navigation /> */}
         <br/>
-      <Container id='main-container'>
-        <Row>
-          <Col className='menu-list'>
-            <Dish />
-          </Col>
-          <Col className='order-list'>
-            <Order />
-          </Col>
-        </Row>
-      </Container>
+      <div id='main-div'>
+          <div className='menu-list'>
+            {menu.map((dish) => (
+            <Dish key={dish.id} dish={dish}/>
+            ))}
+          </div>
+      </div>
     </div>
 
   );
 }
-export default StoreContainer;
+const mapStateToProps = (state) => {
+  return {
+    menu: state.menu,
+  };
+};
+
+export default connect (mapStateToProps) (StoreContainer);

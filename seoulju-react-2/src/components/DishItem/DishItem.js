@@ -1,7 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import { Card, Button } from 'react-bootstrap';
-import { addToOrder } from '../actions/menuActions';
+import { addToOrder } from '../../actions/menuActions';
+import styles from './Dish.module.css'
 
 // class Dish extends React.Component {
 //   render() {
@@ -25,13 +26,10 @@ import { addToOrder } from '../actions/menuActions';
 
 // export default Dish;
 
-function Dish() {
-  const menu = useSelector((state) => state.menu);
-  const dispatch = useDispatch();
+function Dish({ dish, addToOrder }) {
+
   return (
     <div className='menu-items'>
-      {menu.map((dish) => {
-        return (
           <div key={dish.name} className='menu-item'>
             <Card border='dark' style={{ width: '18rem' }}>
               <Card.Header as='h5'>{dish.category}</Card.Header>
@@ -42,18 +40,23 @@ function Dish() {
                     Price: {dish.price}
                   </span>
                   <br/>
-                  <span className='dish-text'>Description: {dish.desc}</span>
+                  <span className='dish-text'>{dish.desc}</span>
                 </Card.Text>
-                <Button onClick={() => dispatch(addToOrder(dish.id))}>
+                <Button onClick={() => addToOrder(dish.id)}>
                   Add to Order
                 </Button>
               </Card.Body>
             </Card>
             <br />
           </div>
-        );
-      })}
+
     </div>
   );
 }
-export default Dish;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToOrder: (id) => dispatch(addToOrder(id))
+  };
+};
+export default connect(null, mapDispatchToProps) (Dish);
