@@ -52,6 +52,16 @@ export default function menuItems(state = initialState, action) {
           : [...state.order, { ...item, ordered: 1 }],
       };
 
+      case 'UPDATE_ORDER':
+        return {
+          ...state,
+          order: state.order.map((item) =>
+            item.id === action.payload.id
+              ? { ...item, ordered: +action.payload.ordered }
+              : item
+          ),
+        };
+
 
     default:
       return state;

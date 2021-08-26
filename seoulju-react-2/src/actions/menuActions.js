@@ -26,11 +26,12 @@ export const addToOrder = (dishID) => {
   };
 }
 
-export const updateOrder = (dishID) => {
+export const updateOrder = (dishID, ordered) => {
 return {
   type: 'UPDATE_ORDER',
   payload: {
     id: dishID,
+    ordered
   },
 };
 };

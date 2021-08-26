@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import Order from '../components/Order';
+import Order from '../components/Order/Order';
 import styles from './Cart.module.css';
 // import { Link } from 'react-router-dom';
 
