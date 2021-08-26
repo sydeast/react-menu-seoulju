@@ -28,6 +28,7 @@ import { addToOrder } from '../../actions/menuActions';
 
 function Dish({ dish, addToOrder }) {
 
+  // const isAvailable = userLoggedIn === true;
   return (
     <div className='menu-items'>
           <div key={dish.name} className='menu-item'>

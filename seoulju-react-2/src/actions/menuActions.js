@@ -1,3 +1,4 @@
+// API call to get the menu
 export const fetchMenu = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/menus')
@@ -17,6 +18,26 @@ export const fetchMenu = () => {
   };
 }
 
+//API call to edit dish item
+// export const editDish = (id, dish) => {
+//   return (dispatch) => {
+//     fetch(`http://localhost:3001/api/v1/menus/${id}`, {
+//         method: "PATCH",
+//         headers: { "Content-type": "application/json" },
+//         body: JSON.stringify({ dish }),
+//       })
+//         .then((res) => res.json())
+//         .then((data) => {
+//           dispatch({
+//             type: 'UPDATE_DISH',
+//             payload: data
+//           });
+//         })
+//       .catch((error) => console.log('error', error));
+//   };
+// };
+
+//Order and Cart Actions
 export const addToOrder = (dishID) => {
   return {
     type: 'ORDER_DISH',

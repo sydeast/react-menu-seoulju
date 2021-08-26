@@ -27,6 +27,7 @@ const Navigation = ({order}) => {
           <Header tagline="We'll Soju A Good Time!" />
         </h2>
       </Link>
+      <Link to='/login'><span>Admin Login</span></Link>
       <Link to='/checkout'>
         <div className={styles.navbar_cart}>
           <span className={styles.cart_title}>Cart:</span>

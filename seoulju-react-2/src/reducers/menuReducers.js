@@ -67,6 +67,12 @@ export default function menuItems(state = initialState, action) {
         order: state.order.filter((item) => item.id !== action.payload.id),
       };
 
+    // case 'EDIT_DISH':
+    // return {
+    //   ...state,
+    //   menu: action.payload
+    // };
+
     default:
       return state;
   }
