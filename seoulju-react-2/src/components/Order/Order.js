@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import styles from './Order.module.css'
-import { updateOrder } from '../../actions/menuActions';
+
+import { updateOrder, removeFromOrder } from '../../actions/menuActions';
 
 
-function Order({ item, updateOrder }) {
+function Order({ item, updateOrder, removeFromOrder }) {
   const [input, setInput] = useState(item.ordered);
 
   const onChangeHandler = (e) => {
@@ -14,14 +15,11 @@ function Order({ item, updateOrder }) {
     updateOrder(item.id, e.target.value);
   };
 
-
-
-
   return (
     <div className='ordered-item' key={item.name}>
       <div className='item-desc'>
         <span className='dish-name'>{item.name}</span>
-        <p className={styles.details_desc}>{item.description}</p>
+        <p className={styles.details_desc}>{item.desc}</p>
         <p className={styles.details_price}>$ {item.price}</p>
       </div>
       <div className={styles.orderItem_actions}>
@@ -30,12 +28,20 @@ function Order({ item, updateOrder }) {
           <input
             min='1'
             type='number'
-            id='ordered'
-            name='ordered'
+            id='qty'
+            name='qty'
             value={input}
             onChange={onChangeHandler}
           />
         </div>
+        <button
+          className={styles.actions_deleteItemBtn}
+          onClick={() => removeFromOrder(item.id)}>
+          <img
+            src='https://image.flaticon.com/icons/svg/709/709519.svg'
+            alt=''
+          />
+        </button>
       </div>
     </div>
   );
@@ -51,6 +57,7 @@ function Order({ item, updateOrder }) {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateOrder: (id, value) => dispatch(updateOrder(id, value)),
+    removeFromOrder: (id) => dispatch(removeFromOrder(id)),
   };
 };
 

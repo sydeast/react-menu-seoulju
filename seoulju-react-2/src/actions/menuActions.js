@@ -27,11 +27,20 @@ export const addToOrder = (dishID) => {
 }
 
 export const updateOrder = (dishID, ordered) => {
-return {
-  type: 'UPDATE_ORDER',
-  payload: {
-    id: dishID,
-    ordered
-  },
+  return {
+    type: 'UPDATE_ORDER',
+    payload: {
+      id: dishID,
+      ordered
+    },
+  };
 };
+
+export const removeFromOrder = (dishID) => {
+  return {
+    type: 'REMOVE_FROM_ORDER',
+    payload: {
+      id: dishID,
+    },
+  };
 };
