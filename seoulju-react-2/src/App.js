@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Header from './components/Header';
 import StoreContainer from './containers/StoreContainer';
-import ItemListContainer from './containers/ItemListContainer';
+// import ItemListContainer from './containers/ItemListContainer';
 import OrderContainer from './containers/OrderContainer';
 import { connect } from 'react-redux';
 import { fetchMenu } from './actions/menuActions';

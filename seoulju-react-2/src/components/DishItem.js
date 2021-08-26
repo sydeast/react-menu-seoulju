@@ -44,7 +44,7 @@ function Dish() {
                   <br/>
                   <span className='dish-text'>Description: {dish.desc}</span>
                 </Card.Text>
-                <Button onClick={() => dispatch(addToOrder(dish))}>
+                <Button onClick={() => dispatch(addToOrder(dish.id))}>
                   Add to Order
                 </Button>
               </Card.Body>

@@ -17,9 +17,20 @@ export const fetchMenu = () => {
   };
 }
 
-export const addToOrder = (dish) => {
+export const addToOrder = (dishID) => {
   return {
     type: 'ORDER_DISH',
-    payload: {dish}
+    payload: {
+      id: dishID
+    }
   };
+}
+
+export const updateOrder = (dishID) => {
+return {
+  type: 'UPDATE_ORDER',
+  payload: {
+    id: dishID,
+  },
+};
 };
