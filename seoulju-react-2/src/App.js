@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Header from './components/Header';
 import StoreContainer from './containers/StoreContainer';
 // import ItemListContainer from './containers/ItemListContainer';
-import OrderContainer from './containers/OrderContainer';
+import CartContainer from './containers/CartContainer';
 import { connect } from 'react-redux';
 import { fetchMenu } from './actions/menuActions';
 import Navigation from './components/Nav/Navigation';
@@ -27,7 +27,7 @@ class App extends React.Component {
        <Navigation />
        <br />
        <Route exact path='/' component={StoreContainer} />
-       <Route exact path='/checkout' component={OrderContainer} />
+       <Route exact path='/checkout' component={CartContainer} />
      </Router>
    );
 }
