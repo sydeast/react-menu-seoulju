@@ -1,21 +1,23 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import Header from './Header';
+import Header from '../Header';
+import styles from './Navbar.module.css';
+
 
 const Navigation = () => {
   return (
-    <Navbar bg='light' expand='lg' sticky='top'>
+    <Navbar bg='light' expand='lg' sticky='top' className={styles.navbar}>
       <Container>
         <Navbar.Brand href='/'>
           <Header tagline="We'll Soju A Good Time!" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
+        <div className={styles.navbar__cart}>
           <Nav className='me-auto'>
-            <Nav.Link href='checkout'>My Order</Nav.Link>
+            <Nav.Link href='checkout'>Cart</Nav.Link>
+            <div className={styles.cart__counter}>0 Items</div>
           </Nav>
-        </Navbar.Collapse>
+        </div>
       </Container>
     </Navbar>
   );

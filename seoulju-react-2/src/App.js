@@ -8,7 +8,7 @@ import StoreContainer from './containers/StoreContainer';
 import OrderContainer from './containers/OrderContainer';
 import { connect } from 'react-redux';
 import { fetchMenu } from './actions/menuActions';
-// import Navigation from './components/Navigation';
+import Navigation from './components/Nav/Navigation';
 
 class App extends React.Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ class App extends React.Component {
      //  </div>
 
      <Router>
-       {/* <StoreContainer /> */}
+       <Navigation />
        <br />
        <Route exact path='/' component={StoreContainer} />
        <Route exact path='/checkout' component={OrderContainer} />
