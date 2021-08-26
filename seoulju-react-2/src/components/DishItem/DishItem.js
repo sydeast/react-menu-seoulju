@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Card, Button } from 'react-bootstrap';
 import { addToOrder } from '../../actions/menuActions';
-import styles from './Dish.module.css'
+// import styles from './Dish.module.css'
 
 // class Dish extends React.Component {
 //   render() {

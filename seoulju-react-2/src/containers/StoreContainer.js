@@ -5,8 +5,7 @@ import {connect} from 'react-redux';
 
 function StoreContainer({menu}) {
   return (
-    <div className='seoulju-korean-kitchen'>
-        <br/>
+    <div className='overall-menu'>
       <div id='main-div'>
           <div className='menu-list'>
             {menu.map((dish) => (
