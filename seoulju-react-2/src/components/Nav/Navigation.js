@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import Header from '../Header';
 import styles from './Navbar.module.css';
 import {connect } from 'react-redux'
@@ -23,14 +23,14 @@ const Navigation = ({order}) => {
   return (
     <Navbar bg='light' expand='lg' sticky='top' className={styles.navbar}>
       <Link to='/'>
-        <h2 className={styles.navbar__logo}>
+        <h2 className={styles.navbar_logo}>
           <Header tagline="We'll Soju A Good Time!" />
         </h2>
       </Link>
       <Link to='/checkout'>
-        <div className={styles.navbar__cart}>
-          <span className={styles.cart__title}>Cart</span>
-          <span className={styles.cart__counter}>{itemCount}</span>
+        <div className={styles.navbar_cart}>
+          <span className={styles.cart_title}>Cart:</span>
+          <span className={styles.cart_counter}>{itemCount} items</span>
         </div>
       </Link>
     </Navbar>

@@ -10,15 +10,15 @@
   left: 0;
 }
 
-.navbar__logo {
+.navbar_logo {
   font-size: 40px;
   font-weight: bold;
   color: rgb(5, 5, 5);
 }
 
-.navbar__cart {
+.navbar_cart {
   background: #fff;
-  width: 180px;
+  width: 200px;
   border: none;
   border-radius: 15px;
   display: flex;
@@ -28,25 +28,25 @@
   cursor: pointer;
 }
 
-.navbar__cart:hover {
+.navbar_cart:hover {
   opacity: 0.75;
 }
 
-.cart__title {
+.cart_title {
   font-size: 30px;
   font-weight: bold;
   color: var(--dark-color);
 }
 
-.cart__image {
+.cart_image {
   width: 30px;
   height: 30px;
   object-fit: contain;
 }
 
-.cart__counter {
+.cart_counter {
   height: 40px;
-  width: 40px;
+  width: 100px;
   border: 1px solid var(--secondary-color);
   border-radius: 50%;
   color: var(--dark-color);

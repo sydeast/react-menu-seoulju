@@ -5,9 +5,9 @@ const Header = (props) => (
     <h1>
       Seoulju Korean Kitchen and Bar
     </h1>
-    <h3 className="tagline">
+    <h5 className="tagline">
       <span>{props.tagline}</span>
-    </h3>
+    </h5>
   </header>
 );
 

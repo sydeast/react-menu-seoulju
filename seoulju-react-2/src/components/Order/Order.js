@@ -39,7 +39,7 @@ function Order({ item, updateOrder, removeFromOrder }) {
           onClick={() => removeFromOrder(item.id)}>
           <img
             src='https://image.flaticon.com/icons/svg/709/709519.svg'
-            alt=''
+            alt='trashcan-icon'
           />
         </button>
       </div>
