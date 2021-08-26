@@ -64,7 +64,7 @@ export default function menuItems(state = initialState, action) {
     case 'REMOVE_FROM_ORDER':
       return {
         ...state,
-        order: state.order.filter((item) => item.id === action.payload.id),
+        order: state.order.filter((item) => item.id !== action.payload.id),
       };
 
     default:
