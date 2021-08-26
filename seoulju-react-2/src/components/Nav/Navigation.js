@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-// import { Link } from 'react-router-dom';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 import Header from '../Header';
 import styles from './Navbar.module.css';
 import {connect } from 'react-redux'
@@ -16,28 +16,29 @@ const Navigation = ({order}) => {
     order.forEach((item) => {
       count += item.ordered;
     });
-      
+
     setItemCount(count);
   }, [order, itemCount]);
 
   return (
     <Navbar bg='light' expand='lg' sticky='top' className={styles.navbar}>
-      <Container>
-        <Navbar.Brand href='/'>
+      <Link to='/'>
+        <h2 className={styles.navbar__logo}>
           <Header tagline="We'll Soju A Good Time!" />
-        </Navbar.Brand>
+        </h2>
+      </Link>
+      <Link to='/checkout'>
         <div className={styles.navbar__cart}>
-          <Nav className='me-auto'>
-            <Nav.Link href='checkout'>Cart:</Nav.Link>
-            <div className={styles.cart__counter}>{itemCount} Items</div>
-          </Nav>
+          <span className={styles.cart__title}>Cart</span>
+          <span className={styles.cart__counter}>{itemCount}</span>
         </div>
-      </Container>
+      </Link>
     </Navbar>
   );
 };
 const mapStateToProps = (state) => {
   return {
+    menu: state.menu,
     order: state.order
   };
 };

@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem;
-  background: var(--primary-color);
+  background: var(--dark-color);
   position: sticky;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
 .navbar__logo {
   font-size: 40px;
   font-weight: bold;
-  color: #fff;
+  color: rgb(5, 5, 5);
 }
 
 .navbar__cart {
@@ -46,7 +46,7 @@
 
 .cart__counter {
   height: 40px;
-  width: 100px;
+  width: 40px;
   border: 1px solid var(--secondary-color);
   border-radius: 50%;
   color: var(--dark-color);

@@ -12,7 +12,7 @@ import Navigation from './components/Nav/Navigation';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchMenu();
+    this.props.onFetchData();
   }
  render() {
 
@@ -32,6 +32,11 @@ class App extends React.Component {
    );
 }
 }
+const mapStatetoProps = (state) => {
+  return { menu: state.menu, order: state.order, error: state.error };
+};
 
-
-export default connect(null, { fetchMenu })(App);
+const mapDispatchprops = (dispatch) => {
+  return { onFetchData: () => dispatch(fetchMenu()) };
+};
+export default connect(mapStatetoProps, mapDispatchprops)(App);
