@@ -1,0 +1,38 @@
+.dishedit {
+  margin-bottom: 20px;
+  border: 2px solid #000;
+  overflow: hidden;
+  width: 1000px;
+  align-content: center;
+}
+.dishedit input,
+.dishedit textarea,
+.dishedit select {
+  width: 33.33%;
+  padding: 10px;
+  line-height: 1;
+  font-size: 1.2rem;
+  border: 0;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  background: #fff;
+}
+.dishedit input:focus,
+.dishedit textarea:focus,
+.dishedit select:focus {
+  outline: 0;
+  background: #fef2de;
+}
+.dishedit textarea {
+  width: 100%;
+}
+.dishedit input:last-of-type {
+  width: 100%;
+}
+.dishedit button {
+  width: 100%;
+  border: 0;
+}
