@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { editDish, removeFromMenu } from '../actions/menuActions';
+import { editDish, removeFromMenu, filterMenu } from '../actions/menuActions';
 import styles from './AdminContainer.module.css';
 
 
 
-function AdminContainer({ menu, removeFromMenu }) {
+function AdminContainer({ menu, filter, removeFromMenu, filterMenu }) {
   //   return menu.map((dish) => (
   // <div className={styles.dishedit} key={dish.id}>
   //   <select type='text' name='category' defaultValue={dish.category}>
@@ -31,25 +31,49 @@ function AdminContainer({ menu, removeFromMenu }) {
   // </div>
 
   //   ));
-  return menu.map((dish) => (
-    <div className={styles.dishedit} key={dish.id}>
-      <div className={styles.dishItem_details}>
-        <p className={styles.dish_category}>{dish.category}</p>
-        <p className={styles.dish_name}>{dish.name}</p>
-        <p className={styles.dish_desc}>{dish.desc}</p>
-        <p className={styles.dish_price}>$ {dish.price}</p>
+  return (
+    <div>
+      <div className='select'>
+        <select
+          onChange={(e) => {
+            filterMenu(e.target.value);
+          }}
+          className='custom-select'
+          aria-label='Filter Dishes By Course'>
+          <option value='All'>Filter By Course</option>
+          <option value='Appetizer'>Appetizer</option>
+          <option value='Rice Plates'>Rice Plates</option>
+          <option value='Entrees'>Entrees</option>
+          <option value='Soups'>Soups</option>
+          <option value='Korean Fried Chicken'>Korean Fried Chicken</option>
+          <option value='Sauces'>Sauces</option>
+          <option value='Extras'>Extras</option>
+        </select>
+        <span className='focus'></span>
       </div>
-      <div className={styles.dishItem_actions}></div>
-      <button
-        onClick={() => removeFromMenu(dish.id)}> Remove From Menu
-        </button>
+      {filter.map((dish) => (
+        <div className={styles.dishedit} key={dish.id}>
+          <div className={styles.dishItem_details}>
+            <p className={styles.dish_category}>{dish.category}</p>
+            <p className={styles.dish_name}>{dish.name}</p>
+            <p className={styles.dish_desc}>{dish.desc}</p>
+            <p className={styles.dish_price}>$ {dish.price}</p>
+          </div>
+          <div className={styles.dishItem_actions}></div>
+          <button onClick={() => removeFromMenu(dish.id)}>
+            {' '}
+            Remove From Menu
+          </button>
+        </div>
+      ))}
     </div>
-  ));
+  );
 }
 
 const mapStateToProps = (state) => {
   return {
     menu: state.menu,
+    filter: state.filter
   };
 };
 
@@ -57,6 +81,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     // editDish: (id, value) => dispatch(editDish(id, value)),
     removeFromMenu: (id) => dispatch(removeFromMenu(id)),
+    filterMenu: (category) => dispatch(filterMenu(category)),
   };
 };
 

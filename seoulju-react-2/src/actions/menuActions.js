@@ -96,3 +96,12 @@ export const removeFromOrder = (dishID) => {
     },
   };
 };
+
+export const filterMenu = (data) => {
+  return {
+    type: 'FILTER_BY_CATEGORY',
+    payload: {
+      category: data,
+    },
+  };
+};
