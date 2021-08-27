@@ -80,11 +80,19 @@ export default function menuItems(state = initialState, action) {
         menu: action.payload,
       };
 
+    case 'ADD_TO_MENU':
+      return {
+        ...state,
+        menu: action.payload,
+      };
+
     case 'FILTER_BY_CATEGORY':
       return {
         ...state,
-        filter: state.menu.filter((item) => item.category === action.payload.category)
-      }
+        filter: state.menu.filter(
+          (item) => item.category === action.payload.category
+        ),
+      };
 
     default:
       return state;
