@@ -73,6 +73,12 @@ export default function menuItems(state = initialState, action) {
     //   menu: action.payload
     // };
 
+    case 'REMOVE_FROM_MENU':
+      return {
+        ...state,
+        menu: action.payload,
+      };
+
     default:
       return state;
   }
