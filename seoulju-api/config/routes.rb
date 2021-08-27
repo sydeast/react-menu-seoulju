@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/auth/:provider/callback' => 'sessions#omniauth'
   namespace :api do
     namespace :v1 do
       resources :menus
