@@ -38,6 +38,30 @@ export const fetchMenu = () => {
 // };
 
 //API call to edit dish item
+export const addToMenu = (dish) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/v1/menus/`, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ dish }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const menuItems = data.map((dish) => ({
+          ...dish,
+          ordered: 0,
+        }));
+        dispatch({
+          type: 'ADD_TO_MENU',
+          payload: menuItems,
+        });
+      })
+      .catch((error) => console.log('error', error));
+  };
+};
+
+
+//API call to edit dish item
 export const removeFromMenu = (id) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/api/v1/menus/${id}`, {
@@ -93,6 +117,15 @@ export const removeFromOrder = (dishID) => {
     type: 'REMOVE_FROM_ORDER',
     payload: {
       id: dishID,
+    },
+  };
+};
+
+export const filterMenu = (data) => {
+  return {
+    type: 'FILTER_BY_CATEGORY',
+    payload: {
+      category: data,
     },
   };
 };

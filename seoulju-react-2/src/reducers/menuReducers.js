@@ -1,6 +1,7 @@
 const initialState = {
   menu: [],
   order: [],
+  filter: []
 };
 
 export default function menuItems(state = initialState, action) {
@@ -77,6 +78,20 @@ export default function menuItems(state = initialState, action) {
       return {
         ...state,
         menu: action.payload,
+      };
+
+    case 'ADD_TO_MENU':
+      return {
+        ...state,
+        menu: action.payload,
+      };
+
+    case 'FILTER_BY_CATEGORY':
+      return {
+        ...state,
+        filter: state.menu.filter(
+          (item) => item.category === action.payload.category
+        ),
       };
 
     default:
