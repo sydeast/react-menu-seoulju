@@ -87,11 +87,18 @@ export default function menuItems(state = initialState, action) {
       };
 
     case 'FILTER_BY_CATEGORY':
-      return {
-        ...state,
-        filter: state.menu.filter(
-          (item) => item.category === action.payload.category
-        ),
+      if (action.payload.category === 'All') {
+        return {
+          ...state,
+          filter: state.menu
+        }
+      } else {
+        return {
+          ...state,
+          filter: state.menu.filter(
+            (item) => item.category === action.payload.category
+          ),
+        }
       };
 
     default:
