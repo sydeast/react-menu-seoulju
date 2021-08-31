@@ -31,7 +31,7 @@ const Navigation = ({order}) => {
       <Link to='/checkout'>
         <div className={styles.navbar_cart}>
           <span className={styles.cart_title}>Cart:</span>
-          <span className={styles.cart_counter}>{itemCount} items</span>
+          <span className={styles.cart_counter} id='counter'>{itemCount} items</span>
         </div>
       </Link>
     </Navbar>
