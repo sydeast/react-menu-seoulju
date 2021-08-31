@@ -16,11 +16,11 @@ function Order({ item, updateOrder, removeFromOrder }) {
   };
 
   return (
-    <div className='ordered-item' key={item.name}>
+    <div className='orderedItem' key={item.name}>
       <div className='item-desc'>
         <span className='dish-name'>{item.name}</span>
         <p className={styles.details_desc}>{item.desc}</p>
-        <p className={styles.details_price}>$ {item.price}</p>
+        <p className={styles.details_price} id='itemPrice'>$ {item.price}</p>
       </div>
       <div className={styles.orderItem_actions}>
         <div className={styles.orderItem_ordered}>
@@ -36,7 +36,8 @@ function Order({ item, updateOrder, removeFromOrder }) {
         </div>
         <button
           className={styles.actions_deleteItemBtn}
-          onClick={() => removeFromOrder(item.id)}>
+          onClick={() => removeFromOrder(item.id)}
+          id='removeFromOrderBtn'>
           <img
             src='https://image.flaticon.com/icons/svg/709/709519.svg'
             alt='trashcan-icon'

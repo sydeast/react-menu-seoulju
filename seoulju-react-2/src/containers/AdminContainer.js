@@ -52,7 +52,7 @@ function AdminContainer({ menu, filter, removeFromMenu, filterMenu }) {
         <span className='focus'></span>
       </div>
       {filter.map((dish) => (
-        <div className={styles.dishedit} key={dish.id}>
+        <div className={styles.dish_edit} key={dish.id} id='editingItems'>
           <div className={styles.dishItem_details}>
             <p className={styles.dish_category}>{dish.category}</p>
             <p className={styles.dish_name}>{dish.name}</p>

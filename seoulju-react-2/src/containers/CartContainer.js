@@ -32,9 +32,10 @@ function Cart({order}) {
       </div>
       <div className={styles.order_summary}>
         <h4 className={styles.summary_title}>Order Summary</h4>
+        <span className='itemTotal'>{totalItems} items</span>
         <div className={styles.summary_price}>
-          <span>TOTAL: ({totalItems} items)</span>
-          <span>$ {totalPrice}</span>
+          <span>TOTAL:</span>
+          <span className='totalPrice'>$ {totalPrice}</span>
         </div>
         <button className='summary__checkoutBtn'>Checkout</button>
       </div>
