@@ -74,11 +74,13 @@ export default function menuItems(state = initialState, action) {
     //   menu: action.payload
     // };
 
-    case 'REMOVE_FROM_MENU':
-      return {
-        ...state,
-        menu: action.payload,
-      };
+    case 'REMOVED_FROM_MENU':
+      let deleteIndex = state.filter.findIndex((dish) => action.payload.id === dish.id)
+        return {
+          ...state,
+          menu: state.menu.concat(action.payload),
+          filter: [...state.filter.slice(0, deleteIndex).concat(...state.filter.slice(deleteIndex+1, state.filter.length+1))],
+        };
 
     case 'ADD_TO_MENU':
       return {
