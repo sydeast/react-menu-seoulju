@@ -32,7 +32,7 @@ function AdminContainer({ menu, filter, removeFromMenu, filterMenu }) {
 
   //   ));
   return (
-    <div>
+    <div className='admin-dishes'>
       <div className='select'>
         <select
           onChange={(e) => {
@@ -60,7 +60,7 @@ function AdminContainer({ menu, filter, removeFromMenu, filterMenu }) {
             <p className={styles.dish_price}>$ {dish.price}</p>
           </div>
           <div className={styles.dishItem_actions}></div>
-          <button onClick={() => removeFromMenu(dish)}>
+          <button onClick={() => removeFromMenu(dish)} className='removeBtn'>
             {' '}
             Remove From Menu
           </button>
