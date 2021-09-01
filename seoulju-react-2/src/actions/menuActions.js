@@ -62,35 +62,23 @@ export const addToMenu = (dish) => {
 
 
 //API call to edit dish item
-export const removeFromMenu = (id) => {
+export const removeFromMenu = (dish) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/api/v1/menus/${id}`, {
+    return fetch(`http://localhost:3001/api/v1/menus/${dish.id}`, {
       method: 'DELETE',
       headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({ id }),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        const menuItems = data.map((dish) => ({
-          ...dish,
-          ordered: 0,
-        }));
-        dispatch({
-          type: 'REMOVE_FROM_MENU',
-          payload: menuItems,
-        });
-      })
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(dispatch(removedFromMenu(dish)))
+      .catch((err) => console.log(err));
   };
 };
-// export const removeFromMenu = (dishID) => {
-//   return {
-//     type: 'REMOVE_FROM_MENU',
-//     payload: {
-//       id: dishID
-//     }
-//   }
-// }
+export const removedFromMenu = dish => {
+  return {
+    type: 'REMOVED_FROM_MENU',
+    payload: dish
+  }
+}
 
 //Order and Cart Actions
 export const addToOrder = (dishID) => {
