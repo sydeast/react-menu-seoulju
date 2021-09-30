@@ -9,6 +9,7 @@ import CartContainer from './containers/CartContainer';
 import { connect } from 'react-redux';
 import { fetchMenu } from './actions/menuActions';
 import Navigation from './components/Nav/Navigation';
+import Counter from './components/LC Challenge/Counter';
 
 class App extends React.Component {
   componentDidMount() {
@@ -29,6 +30,7 @@ class App extends React.Component {
        <Route exact path='/' component={StoreContainer} />
        <Route exact path='/login' component={AdminContainer} />
        <Route exact path='/checkout' component={CartContainer} />
+       <Route exact path='/lc' component={Counter} />
      </Router>
    );
 }
